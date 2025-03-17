@@ -78,7 +78,7 @@ Original file is located at
 #     # Get chat history from the database
 #     chat_history = get_session_message_history_from_db(session_id)
 # 
-#     # ✅ FIX: Ensure session history updates with the database messages
+#     #  Ensure session history updates with the database messages
 #     if "chat_history" not in st.session_state:
 #         st.session_state.chat_history = chat_history.messages.copy()
 # 
@@ -103,7 +103,7 @@ Original file is located at
 #     st.subheader("Ask Your Questions")
 #     chat_container = st.container()
 # 
-#     # ✅ FIX: Display messages correctly in the chat UI
+#     #  Display messages correctly in the chat UI
 #     with chat_container:
 #         for msg in st.session_state.chat_history:
 #             role = "You" if isinstance(msg, HumanMessage) else "AI Tutor"
@@ -117,13 +117,13 @@ Original file is located at
 #         with st.chat_message("user"):
 #             st.write(f"**You:** {human_input}")
 # 
-#         # ✅ FIX: Send only the latest user message but keep chat history in context
+#         #  Send only the latest user message but keep chat history in context
 #         response = conversation_chain.invoke(
 #             {"human_input": human_input, "chat_history": st.session_state.chat_history},
 #             config={"configurable": {"session_id": session_id}}
 #         )
 # 
-#         # ✅ FIX: Append only new messages (avoids repetition)
+#         #  Append only new messages (avoids repetition)
 #         chat_history.add_user_message(human_input)
 #         chat_history.add_ai_message(response)
 #         st.session_state.chat_history.append(HumanMessage(content=human_input))
